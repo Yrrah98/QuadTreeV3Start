@@ -40,3 +40,26 @@ C:\Users\Harry.DESKTOP-RB792OQ\OneDrive\Documents\Visual Studio 2017\Projects\Qu
 C:\Users\Harry.DESKTOP-RB792OQ\OneDrive\Documents\Visual Studio 2017\Projects\QuadTreeV3\NQ2\obj\Debug\NQ2.csproj.CopyComplete
 C:\Users\Harry.DESKTOP-RB792OQ\OneDrive\Documents\Visual Studio 2017\Projects\QuadTreeV3\NQ2\obj\Debug\NQ2.exe
 C:\Users\Harry.DESKTOP-RB792OQ\OneDrive\Documents\Visual Studio 2017\Projects\QuadTreeV3\NQ2\obj\Debug\NQ2.pdb
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x86\SDL2.dll
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x64\SDL2.dll
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x86\soft_oal.dll
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x64\soft_oal.dll
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x86\libSDL2-2.0.so.0
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x64\libSDL2-2.0.so.0
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x86\libopenal.so.1
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\x64\libopenal.so.1
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\libSDL2-2.0.0.dylib
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\libopenal.1.dylib
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll.config
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\Content\Content\GameEngRect.xnb
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\Content\Content\Player.xnb
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\Content\GameEngRect.xnb
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\Content\Player.xnb
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\NQ2.exe
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\NQ2.pdb
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\obj\Debug\NQ2.csprojAssemblyReference.cache
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\obj\Debug\NQ2.csproj.CoreCompileInputs.cache
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\obj\Debug\NQ2.csproj.CopyComplete
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\obj\Debug\NQ2.exe
+C:\Users\JONH1_17\Documents\GitHub\QuadTreeV3Start\QuadTreeV3\NQ2\obj\Debug\NQ2.pdb

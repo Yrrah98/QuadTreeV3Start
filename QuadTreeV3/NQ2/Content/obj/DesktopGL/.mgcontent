@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/JONH1_17/Documents/GitHub/QuadTreeV3Start/QuadTreeV3/NQ2/Content/GameEngRect.png</File>
+    <File>C:/Users/JONH1_17/Documents/GitHub/QuadTreeV3Start/QuadTreeV3/NQ2/Content/Player.png</File>
+  </SourceFiles>
+</SourceFileCollection>
