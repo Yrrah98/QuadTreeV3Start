@@ -20,11 +20,15 @@ namespace NQ2.Interfaces
 
         void Clear();
 
-        IList<IEntity> ReturnEntities();
+        SpriteBatch Draw(SpriteBatch spriteBatch);
 
         Rectangle RootRect { get; }
 
         IList<IEntity> _Entities { get; }
+
+        Texture2D RectText { get; }
+
+
 
     }
 }

@@ -16,9 +16,9 @@ namespace NQ2
         SpriteBatch spriteBatch;
 
         
-
+        // DECLARE IQuadTree<T> called _quad, this will be the root quad 
         private IQuadTree<IHaveRect> _quad;
-
+        // DECLARE Random called rand
         private Random rand;
         
         public Game1()
@@ -57,7 +57,8 @@ namespace NQ2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            for(int i = 0; i < 100; i++)
+            // FORLOOP and spawn 100 entities onto the screen 
+            for(int i = 0; i < 200; i++)
             {
                 IEntity e = new SomeXEntity();
 
@@ -92,6 +93,7 @@ namespace NQ2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            // CALL to Update component of the quad tree
             ((IUpdateableComponent)_quad).Update(gameTime);
 
             // TODO: Add your update logic here
@@ -105,10 +107,12 @@ namespace NQ2
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            // CALL to Draw method in managers/objects
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            foreach (IEntity e in _quad.ReturnEntities())
+            foreach (IEntity e in _quad._Entities)
                 spriteBatch.Draw(e.Texture, ((IHaveRect)e).ObjRect, Color.AntiqueWhite);
+            _quad.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
