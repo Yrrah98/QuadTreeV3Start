@@ -13,12 +13,14 @@ namespace NQ2
     {
         // DECLARE IList<IEntity> called _nodeEntities
         private IList<IEntity> _nodeEntities;
+        // DECLARE IList<IEntity> called _toMove
+        private IEntity _toMove;
         // DECLARE Texture2D called _rectTex, to store texture for this node
         private Texture2D _rectTex;
         // DECLARE a const int called MAX_ENTITIES to hold a value which represents the maximum number of entities
         private const int MAX_ENTITIES = 8;
         // DECLARE a const in called MAX_LEVELS to hold a value which represents the maximum number of levels the quad can split into
-        private const int MAX_LEVELS = 4;
+        private const int MAX_LEVELS = 5;
         // DECLARE a Rectangle called _rootRect which will store the rectangle of each quad
         private Rectangle _rootRect;
         // DECLARE int called _level which will be used to hold the current level 
@@ -35,8 +37,8 @@ namespace NQ2
 
         private IQuadTree<T> _SouthEast;
 
-        // DECLARE int called count 
-        private int count;
+        private ChangeEntityNode<T> _changeEntityNode;
+
 
         /// <summary>
         /// CONSTRUCTOR for class QuadTree
@@ -55,6 +57,17 @@ namespace NQ2
 
         }
 
+        public QuadTree(Rectangle rect, int level, Texture2D rectTex, ChangeEntityNode<T> changeEntityNode)
+        {
+            this._rootRect = rect;
+
+            _level = level;
+
+            _rectTex = rectTex;
+
+            _changeEntityNode = changeEntityNode;
+        }
+
         /// <summary>
         /// METHOD: Update, called once per frame, provides behaviour 
         /// </summary>
@@ -70,17 +83,29 @@ namespace NQ2
                     u.Update(gameTime);
 
                 // IF the maximum count of entities is exceeded, divide the node into 4
-                if (_nodeEntities.Count >= MAX_ENTITIES)
+               
+
+                for (int i = 0; i < _nodeEntities.Count - 1; i++)
                 {
-                    // IF this level is less than or equal to the max level 
-                    if (this._level <= MAX_LEVELS)
-                        // THEN CALL Divide method
-                        Divide();
+                    if (this.RootRect.Contains(((IHaveRect)_nodeEntities[i]).ObjRect) == false)
+                    {
+
+                        _toMove = _nodeEntities[i];
+
+                        _changeEntityNode?.Invoke(_toMove, this);
+
+                        _toMove = null;
+                    }
+
+                    
                 }
+                    
             }
 
+            
+
             // IF _northWest, or any of the quad nodes are not null
-            if(_northWest != null)
+            if (_northWest != null)
             {
                 // THEN CAST to IUpdateableComponent and call Update method
                 ((IUpdateableComponent)_northWest).Update(gameTime);
@@ -97,12 +122,54 @@ namespace NQ2
         public void Add(IEntity e)
         {
             // IF the list of entities is null or has a count of zero
-            if (_nodeEntities == null || _nodeEntities.Count == 0)
+            if (_nodeEntities == null)
                 // THEN reset/make a new list of entities 
                 _nodeEntities = new List<IEntity>();
 
             // ADD the entity passed in to the entity list
             _nodeEntities.Add(e);
+
+            if (_nodeEntities.Count >= MAX_ENTITIES)
+            {
+                // IF this level is less than or equal to the max level 
+                if (this._level <= MAX_LEVELS)
+                    // THEN CALL Divide method
+                    Divide();
+            }
+        }
+
+        public void ChangeEntityNode<C>(IEntity e, IQuadTree<T> currQuad) where C : IHaveRect
+        {
+
+
+                currQuad._Entities.Remove(e);
+
+                if (_northWest.RootRect.Contains(((IHaveRect)e).ObjRect))
+                {
+                    // THEN add to the quad node 
+                    _northWest.Add(e);
+
+                }
+                else if (_northEast.RootRect.Contains(((IHaveRect)e).ObjRect))
+                {
+
+                    _northEast.Add(e);
+                }
+                else if (_southWest.RootRect.Contains(((IHaveRect)e).ObjRect))
+                {
+
+                    _southWest.Add(e);
+                }
+                else if (_SouthEast.RootRect.Contains(((IHaveRect)e).ObjRect))
+                {
+
+                    _SouthEast.Add(e);
+                }
+                else
+                    _nodeEntities.Add(e);
+
+            
+
         }
 
         /// <summary>
@@ -116,60 +183,63 @@ namespace NQ2
             int x = this.RootRect.Left;
             int y = this.RootRect.Top;
 
+
             // INCREMENT the level by 1 
-            _level++;
-            
+            int nLevel = _level++;
+
             // IF the list of nodes is null
-            if (_quads == null)
+            if (_quads == null && this._level <= MAX_LEVELS)
             {
                 // THEN instantiate a new list of IQuadTree<T>
                 _quads = new List<IQuadTree<T>>();
 
                 // INSTANTIATE the four nodes to new QuadTrees<T>, passing in a new Rectangle taking the half height and width as well as the position as parameters
                 // then send in the current level and the texture of the quad
-                _northWest = new QuadTree<T>(new Rectangle(x, y, w, h), _level, _rectTex);
+                _northWest = new QuadTree<T>(new Rectangle(x,y,w,h), nLevel, this.RectText, this.ChangeEntityNode<T>);
                 // THEN add this node to the list of nodes, repeat x4
                 _quads.Add(_northWest);
-                _northEast = new QuadTree<T>(new Rectangle(x + w, y, w, h), _level, _rectTex);
+                _northEast = new QuadTree<T>(new Rectangle(x + w, y, w, h), nLevel, this.RectText, this.ChangeEntityNode<T>);
                 _quads.Add(_northEast);
-                _southWest = new QuadTree<T>(new Rectangle(x, y + h, w, h), _level, _rectTex);
+                _southWest = new QuadTree<T>(new Rectangle(x, y + h, w, h), nLevel, this.RectText, this.ChangeEntityNode<T>);
                 _quads.Add(_southWest);
-                _SouthEast = new QuadTree<T>(new Rectangle(x + w, y + h, w, h), _level, _rectTex);
+                _SouthEast = new QuadTree<T>(new Rectangle(x + w, y + h, w, h), nLevel, this.RectText, this.ChangeEntityNode<T>);
                 _quads.Add(_SouthEast);
             }
 
             // FORLOOP through the entities based on the count 
-            for (int i = 0; i < _nodeEntities.Count; i++)
+            for (int i = 0; i < _nodeEntities.Count - 1; i++)
             {
+
                 ///
                 ///
-                /// TO ADJUST THIS CODE TO BE MORE APPROPRIATE 
+                /// Need to run check to see if entity rectangle is completely contained within a node before adding it to it 
                 ///
+                /// Check if (entity)left is greater than (node)left, (e)right is less than (n)right 
+                /// (e)top is grater than (n)top and (e)bottom is less than (n)bottom 
                 ///
-                /// DONE LIKE THIS FOR TESTING PURPOSES
+                /// If any part of this statement comes back negative, entity will remain in parent node
                 ///
 
                 // IF 
-                if (((IHaveRect)_nodeEntities[i]).ObjRect.Left < x+w && ((IHaveRect)_nodeEntities[i]).ObjRect.Y < y+h)
+                if (_northWest.RootRect.Contains(((IHaveRect)_nodeEntities[i]).ObjRect))
                 {
                     // THEN add to the quad node 
                     _northWest.Add(_nodeEntities[i]);
                     // THEN remove from the list of entities
                     _nodeEntities.RemoveAt(i);
                 }
-                else if (((IHaveRect)_nodeEntities[i]).ObjRect.X < x+w && ((IHaveRect)_nodeEntities[i]).ObjRect.Y > y+h)
+                else if (_northEast.RootRect.Contains(((IHaveRect)_nodeEntities[i]).ObjRect))
+                {
+                    _northEast.Add(_nodeEntities[i]);
+                    _nodeEntities.RemoveAt(i);
+                }
+                else if (_southWest.RootRect.Contains(((IHaveRect)_nodeEntities[i]).ObjRect))
                 {
                     
                     _southWest.Add(_nodeEntities[i]);
                     _nodeEntities.RemoveAt(i);
                 }
-                else if (((IHaveRect)_nodeEntities[i]).ObjRect.X > x+w && ((IHaveRect)_nodeEntities[i]).ObjRect.Y < y+h)
-                {
-                    
-                    _northEast.Add(_nodeEntities[i]);
-                    _nodeEntities.RemoveAt(i);
-                }
-                else if (((IHaveRect)_nodeEntities[i]).ObjRect.X > x+w && ((IHaveRect)_nodeEntities[i]).ObjRect.Y > y+h)
+                else if (_SouthEast.RootRect.Contains(((IHaveRect)_nodeEntities[i]).ObjRect))
                 {
                     
                     _SouthEast.Add(_nodeEntities[i]);
@@ -206,11 +276,17 @@ namespace NQ2
         /// <returns></returns>
         public SpriteBatch Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(this._rectTex, _rootRect, Color.AntiqueWhite);
 
+            spriteBatch.Draw(this.RectText, RootRect, Color.AntiqueWhite);
+            if (_nodeEntities != null)
+                foreach (IEntity e in _nodeEntities)
+                    spriteBatch.Draw(e.Texture, ((IHaveRect)e).ObjRect, Color.AntiqueWhite);
             if(_quads != null)
                 foreach (IQuadTree<T> q in _quads)
                     q.Draw(spriteBatch);
+
+            
+
 
             return spriteBatch;
         }
@@ -242,6 +318,7 @@ namespace NQ2
 
                 return all;
             }
+            set { _nodeEntities = value; }
         }
 
         public Texture2D RectText

@@ -8,13 +8,19 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NQ2.Interfaces
 {
-    interface IAABB
+    public interface IAABB
     {
 
-        void SetTxtr(Texture2D txtr);
+        int Left { get; }
 
-        Vector2 Size { get; set; }
+        int Right { get; }
+
+        int Bottom { get; }
+
+        int Top { get; }
 
         Vector2 Position { get; set; }
+
+        Texture2D Tex { get; }
     }
 }

@@ -7,29 +7,42 @@ using Microsoft.Xna.Framework;
 
 namespace NQ2
 {
-    class SomeXEntity : EntitY
+    class SomeXEntity : Entity
     {
         private Vector2 position;
 
         private int speed;
 
+        private int dist;
+
+        private Vector2 startPos;
+
         /// <summary>
         /// CONSTRUCTOR: For some Entity class
         /// </summary>
-        public SomeXEntity()
+        public SomeXEntity(Rectangle rect)
         {
+            this.ObjRect = rect;
+
+            dist = 50;
+
             position = new Vector2(this.ObjRect.X, this.ObjRect.Y);
+
+            startPos = new Vector2(this.ObjRect.X, this.ObjRect.Y);
 
             speed = 1;
         }
 
         public override void Update(GameTime gameTime)
         {
-            position.X += speed;
+            position.X += 0.5f * speed;
 
-            position.Y += speed;
+            position.Y += 0.5f * speed;
 
-            //this.ObjRect = new Rectangle((int)position.X, (int)position.Y, 32, 32);
+            if (position.X >= startPos.X + dist && position.Y >= startPos.Y + dist || position.X <= startPos.X - dist && position.Y <= startPos.Y - dist)
+                speed *= -1;
+
+            this.ObjRect = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
             base.Update(gameTime);
         }

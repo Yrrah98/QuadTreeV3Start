@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NQ2.Interfaces
 {
-    interface IQuadTree<T> where T : IHaveRect
+    public interface IQuadTree<T> where T : IHaveRect
     {
 
 
@@ -24,7 +24,7 @@ namespace NQ2.Interfaces
 
         Rectangle RootRect { get; }
 
-        IList<IEntity> _Entities { get; }
+        IList<IEntity> _Entities { get; set; }
 
         Texture2D RectText { get; }
 

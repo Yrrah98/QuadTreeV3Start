@@ -58,15 +58,14 @@ namespace NQ2
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // FORLOOP and spawn 100 entities onto the screen 
-            for(int i = 0; i < 200; i++)
+            for(int i = 0; i < 100; i++)
             {
-                IEntity e = new SomeXEntity();
+                Rectangle eRectangle = new Rectangle(rand.Next(1, 1600), rand.Next(1, 900), 32, 32);
+                
+                IEntity e = new SomeXEntity(eRectangle);
 
                 e.SetTxtr(Content.Load<Texture2D>("Player"));
-
-                ((IHaveRect)e).ObjRect = new Rectangle(rand.Next(1, 1600), rand.Next(1, 900), 32, 32);
                 
-
                 _quad.Add(e);
 
             }
@@ -110,8 +109,6 @@ namespace NQ2
             // CALL to Draw method in managers/objects
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            foreach (IEntity e in _quad._Entities)
-                spriteBatch.Draw(e.Texture, ((IHaveRect)e).ObjRect, Color.AntiqueWhite);
             _quad.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here

@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Harry.DESKTOP-RB792OQ/OneDrive/Documents/Visual Studio 2017/Projects/QuadTreeV3/NQ2/Content/GameEngRect.png</File>
-    <File>C:/Users/Harry.DESKTOP-RB792OQ/OneDrive/Documents/Visual Studio 2017/Projects/QuadTreeV3/NQ2/Content/Player.png</File>
+    <File>C:/Users/Harry.DESKTOP-RB792OQ/source/repos/QuadTreeV3Start/QuadTreeV3/NQ2/Content/GameEngRect.png</File>
+    <File>C:/Users/Harry.DESKTOP-RB792OQ/source/repos/QuadTreeV3Start/QuadTreeV3/NQ2/Content/Player.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Harry.DESKTOP-RB792OQ/OneDrive/Documents/Visual Studio 2017/Projects/QuadTreeV3/NQ2/Content/GameEngRect.png</SourceFile>
+  <SourceFile>C:/Users/Harry.DESKTOP-RB792OQ/source/repos/QuadTreeV3Start/QuadTreeV3/NQ2/Content/GameEngRect.png</SourceFile>
   <SourceTime>2020-02-10T19:24:50.4930025+00:00</SourceTime>
-  <DestFile>C:/Users/Harry.DESKTOP-RB792OQ/OneDrive/Documents/Visual Studio 2017/Projects/QuadTreeV3/NQ2/Content/bin/DesktopGL/Content/GameEngRect.xnb</DestFile>
-  <DestTime>2020-02-11T13:08:09.9126495+00:00</DestTime>
+  <DestFile>C:/Users/Harry.DESKTOP-RB792OQ/source/repos/QuadTreeV3Start/QuadTreeV3/NQ2/Content/bin/DesktopGL/Content/GameEngRect.xnb</DestFile>
+  <DestTime>2020-02-17T23:05:04.8611369+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2019-03-23T10:52:00+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

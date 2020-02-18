@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace NQ2.Interfaces
 {
-    interface IHaveRect
+    public interface IHaveRect
     {
 
         Rectangle ObjRect { get; set; }

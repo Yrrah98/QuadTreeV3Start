@@ -9,17 +9,17 @@ using Microsoft.Xna.Framework;
 
 namespace NQ2
 {
-    abstract class EntitY : IEntity, IHaveRect, IUpdateableComponent
+    abstract class Entity : IEntity, IHaveRect, IUpdateableComponent
     {
         // DECLARE: Texture2D called _txtr
         private Texture2D _txtr;
         // DECLARE Rectangle called _objRect
-        private Rectangle _objRect;
+        protected Rectangle _objRect;
 
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
-        public EntitY()
+        public Entity()
         {
 
         }
@@ -54,6 +54,8 @@ namespace NQ2
             get { return _objRect; }
             set { _objRect = value; }
         }
+
+        
 
         #endregion
     }

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace NQ2.Interfaces
 {
-    interface IEntity
+    public interface IEntity
     {
 
         Texture2D Texture { get; }
