@@ -142,33 +142,41 @@ namespace NQ2
         {
 
 
+                
+
+            if (_northWest.RootRect.Contains(((IHaveRect)e).ObjRect))
+            {
+                // THEN add to the quad node 
+                _northWest.Add(e);
                 currQuad._Entities.Remove(e);
 
-                if (_northWest.RootRect.Contains(((IHaveRect)e).ObjRect))
-                {
-                    // THEN add to the quad node 
-                    _northWest.Add(e);
+            }
+            else if (_northEast.RootRect.Contains(((IHaveRect)e).ObjRect))
+            {
 
-                }
-                else if (_northEast.RootRect.Contains(((IHaveRect)e).ObjRect))
-                {
+                _northEast.Add(e);
+                currQuad._Entities.Remove(e);
+            }
+            else if (_southWest.RootRect.Contains(((IHaveRect)e).ObjRect))
+            {
 
-                    _northEast.Add(e);
-                }
-                else if (_southWest.RootRect.Contains(((IHaveRect)e).ObjRect))
-                {
+                _southWest.Add(e);
+                currQuad._Entities.Remove(e);
 
-                    _southWest.Add(e);
-                }
-                else if (_SouthEast.RootRect.Contains(((IHaveRect)e).ObjRect))
-                {
+            }
+            else if (_SouthEast.RootRect.Contains(((IHaveRect)e).ObjRect))
+            {
 
-                    _SouthEast.Add(e);
-                }
-                else
-                    _nodeEntities.Add(e);
+                _SouthEast.Add(e);
+                currQuad._Entities.Remove(e);
+            }
+            else
+            {
+                _nodeEntities.Add(e);
+                currQuad._Entities.Remove(e);
+            }
 
-            
+            currQuad._Entities.Remove(e);
 
         }
 

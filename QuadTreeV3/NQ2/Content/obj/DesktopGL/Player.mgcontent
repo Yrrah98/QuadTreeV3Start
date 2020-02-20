@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/JONH1_17/Documents/GitHub/QuadTreeV3Start/QuadTreeV3/NQ2/Content/Player.png</SourceFile>
-  <SourceTime>2020-02-17T16:04:52.7179747+00:00</SourceTime>
+  <SourceTime>2020-02-20T13:50:18.1048078+00:00</SourceTime>
   <DestFile>C:/Users/JONH1_17/Documents/GitHub/QuadTreeV3Start/QuadTreeV3/NQ2/Content/bin/DesktopGL/Player.xnb</DestFile>
-  <DestTime>2020-02-17T16:05:12.6756902+00:00</DestTime>
+  <DestTime>2020-02-20T13:53:21.8762241+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
